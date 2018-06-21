@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { EventObj } from '@tinymce/tinymce-angular/editor/Events';
-import { TinymceEvent } from '../plugins/tinymce-types';
 
 @Component({
   selector: 'app-root',
@@ -9,18 +7,18 @@ import { TinymceEvent } from '../plugins/tinymce-types';
 })
 export class AppComponent {
 
+  dataModel = '---- Hello Jason! ----';
+
   editorSettings = {
     skin_url: 'assets/skins/lightgray',
     plugins: [
       'code',
-      // 'link',
       'list.jason',
     ],
   };
-  dataModel = '';
 
-  handleEvent($eventObj: EventObj<TinymceEvent>) {
-    console.log(`handleEvent:`, $eventObj, this.dataModel);
+  handleEvent() {
+    console.log(this.dataModel);
   }
 
 }
